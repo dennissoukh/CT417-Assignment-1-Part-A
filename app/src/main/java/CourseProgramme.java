@@ -7,11 +7,9 @@ public class CourseProgramme {
   public ArrayList<Student> students;
   public DateTime startDate, endDate;
 
-  public CourseProgramme(String name, ArrayList<Module> modules, ArrayList<Student> students, DateTime startDate, DateTime endDate)
+  public CourseProgramme(String name, DateTime startDate, DateTime endDate)
   {
     this.name = name;
-    this.modules = modules;
-    this.students = students;
     this.startDate = startDate;
     this.endDate = endDate;
   }
@@ -39,5 +37,30 @@ public class CourseProgramme {
   public DateTime getEndDate()
   {
     return endDate;
+  }
+
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void setStartDate(DateTime startDate)
+  {
+    this.startDate = startDate;
+  }
+
+  public void setEndDate(DateTime endDate)
+  {
+    this.endDate = endDate;
+  }
+
+  public void setModules(ArrayList<Module> modules)
+  {
+    this.modules = modules;
+  }
+
+  public void setStudents(ArrayList<Student> students)
+  {
+    this.students = students;
   }
 }

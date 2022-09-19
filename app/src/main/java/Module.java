@@ -4,15 +4,13 @@ public class Module {
   public String name;
   public String id;
   public ArrayList<Student> students;
-  public ArrayList<CourseProgramme> courses;
+  public ArrayList<CourseProgramme> courseProgrammes;
   public Lecturer lecturer;
 
-  public Module(String name, String id, ArrayList<Student> students, ArrayList<CourseProgramme> courses, Lecturer lecturer)
+  public Module(String name, String id, Lecturer lecturer)
   {
     this.name = name;
     this.id = id;
-    this.students = students;
-    this.courses = courses;
     this.lecturer = lecturer;
   }
 
@@ -33,12 +31,37 @@ public class Module {
 
   public ArrayList<CourseProgramme> getCourseProgramme()
   {
-    return courses;
+    return courseProgrammes;
   }
 
   public Lecturer getLecturer()
   {
     return lecturer;
+  }
+
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void setId(String id)
+  {
+    this.id = id;
+  }
+
+  public void setLecturer(Lecturer lecturer)
+  {
+    this.lecturer = lecturer;
+  }
+
+  public void setCourses(ArrayList<CourseProgramme> courseProgrammes)
+  {
+    this.courseProgrammes = courseProgrammes;
+  }
+
+  public void setStudents(ArrayList<Student> students)
+  {
+    this.students = students;
   }
 
   public void addStudent(Student student)
@@ -48,6 +71,6 @@ public class Module {
 
   public void addCourseProgramme(CourseProgramme courseProgramme)
   {
-    courses.add(courseProgramme);
+    courseProgrammes.add(courseProgramme);
   }
 }
