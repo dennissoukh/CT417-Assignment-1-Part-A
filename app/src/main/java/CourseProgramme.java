@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import org.joda.time.DateTime;
 
 public class CourseProgramme {
-  public String name;
-  public ArrayList<Module> modules;
-  public ArrayList<Student> students;
-  public DateTime startDate, endDate;
+  private String name;
+  private ArrayList<Module> modules;
+  private ArrayList<Student> students;
+  private DateTime startDate, endDate;
 
   public CourseProgramme(String name, DateTime startDate, DateTime endDate)
   {
