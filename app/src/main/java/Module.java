@@ -12,6 +12,9 @@ public class Module {
     this.name = name;
     this.id = id;
     this.lecturer = lecturer;
+
+    students = new ArrayList<Student>();
+    courseProgrammes = new ArrayList<CourseProgramme>();
   }
 
   public String getName() 
@@ -72,5 +75,15 @@ public class Module {
   public void addCourseProgramme(CourseProgramme courseProgramme)
   {
     courseProgrammes.add(courseProgramme);
+  }
+
+  @Override
+  public String toString()
+  {
+    return 
+      "Module: " + id + " " + name + "\n" +
+      "Students: \n" + students.toString() + "\n" +
+      "Course programmes: \n" + courseProgrammes.toString() + "\n" +
+      "Lecturer: \n" + lecturer.toString() + "\n";
   }
 }

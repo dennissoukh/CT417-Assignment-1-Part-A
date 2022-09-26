@@ -9,7 +9,7 @@ public class StudentTest
   {
     // Arrange.
     DateTime dateOfBirth = new DateTime();
-    Student student = new Student("John", 53, dateOfBirth, 5);
+    Student student = new Student("John", dateOfBirth, 5);
 
     // Act.
     String username = student.getUsername();

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
 
 public class Student {
   private String name;
@@ -9,12 +11,15 @@ public class Student {
   private ArrayList<CourseProgramme> courses;
   private ArrayList<Module> modules;
 
-  public Student(String name, int age, DateTime dateOfBirth, int id)
+  public Student(String name, DateTime dateOfBirth, int id)
   {
     this.name = name;
-    this.age = age;
     this.dateOfBirth = dateOfBirth;
     this.id = id;
+
+    age = new Period(dateOfBirth, DateTime.now(), PeriodType.yearMonthDay()).getYears();
+    courses = new ArrayList<CourseProgramme>();
+    modules = new ArrayList<Module>();
   }
 
   public String getName()
@@ -39,7 +44,7 @@ public class Student {
 
   public String getUsername()
   {
-    return name + String.valueOf(age);
+    return (name + String.valueOf(age)).replaceAll("\\s", "");
   }
 
   public ArrayList<CourseProgramme> getCourses()
@@ -88,5 +93,30 @@ public class Student {
   public void addModule(Module module)
   {
     modules.add(module);
+  }
+
+  @Override
+  public String toString()
+  {
+    StringBuilder courseStr = new StringBuilder();
+    for (CourseProgramme c : courses)
+    {
+      courseStr.append("  " + c.getName() + "\n");
+    }
+
+    StringBuilder moduleStr = new StringBuilder();
+    for (Module m : modules)
+    {
+      moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+    }
+
+    return
+      "Student: " + name + "\n" +
+      "- ID: " + String.valueOf(id) + "\n" +
+      "- Username: " + getUsername() + "\n" +
+      "- Date of Birth: " + dateOfBirth.toLocalDate() + "\n" +
+      "- Age: " + String.valueOf(age) + "\n" +
+      "- Courses:\n" + courseStr +
+      "- Modules:\n" + moduleStr;
   }
 }

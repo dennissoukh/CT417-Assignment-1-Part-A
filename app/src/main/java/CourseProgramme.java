@@ -12,6 +12,9 @@ public class CourseProgramme {
     this.name = name;
     this.startDate = startDate;
     this.endDate = endDate;
+
+    modules = new ArrayList<Module>();
+    students = new ArrayList<Student>();
   }
 
   public String getName()
@@ -62,5 +65,31 @@ public class CourseProgramme {
   public void setStudents(ArrayList<Student> students)
   {
     this.students = students;
+  }
+
+  public void addModule(Module module)
+  {
+    modules.add(module);
+  }
+
+  public void addStudent(Student student)
+  {
+    students.add(student);
+  }
+
+  @Override
+  public String toString()
+  {
+    StringBuilder moduleStr = new StringBuilder();
+    for (Module m : modules)
+    {
+      moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+    }
+
+    return
+      "Course programme: " + name + "\n" + 
+      "- Start date: " + startDate.toLocalDate() + "\n" +
+      "- End date: " + endDate.toLocalDate() + "\n" +
+      "- Modules:\n" + moduleStr;
   }
 }

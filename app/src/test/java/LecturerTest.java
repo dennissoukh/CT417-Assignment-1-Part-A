@@ -9,12 +9,26 @@ public class LecturerTest
   {
     // Arrange.
     DateTime dateOfBirth = new DateTime();
-    Lecturer lecturer = new Lecturer("Micheal", 25, dateOfBirth, 5);
+    Lecturer lecturer = new Lecturer("Micheal", dateOfBirth, 5);
 
     // Act.
     String username = lecturer.getUsername();
 
     // Assert.
     assertEquals("Micheal25", username);
+  }
+
+  @Test 
+  void returnsCorrectAge()
+  {
+    // Arrange.
+    DateTime dateOfBirth = DateTime.parse("2001-06-10");
+    Lecturer lecturer = new Lecturer("Craig", dateOfBirth, 10);
+
+    // Act.
+    int age = lecturer.getAge();
+
+    // Assert.
+    assertEquals(21, age);
   }
 }

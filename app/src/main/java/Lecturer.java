@@ -1,19 +1,23 @@
 import java.util.ArrayList;
 import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
 
 public class Lecturer {
   private String name;
   private int age;
   private DateTime dateOfBirth;
-  private int id;
+  private long id;
   private ArrayList<Module> modules;
 
-  public Lecturer(String name, int age, DateTime dateOfBirth, int id)
+  public Lecturer(String name, DateTime dateOfBirth, long id)
   {
     this.name = name;
-    this.age = age;
     this.dateOfBirth = dateOfBirth;
     this.id = id;
+
+    age = new Period(dateOfBirth, DateTime.now(), PeriodType.yearMonthDay()).getYears();
+    modules = new ArrayList<Module>();
   }
 
   public String getName()
@@ -31,14 +35,14 @@ public class Lecturer {
     return dateOfBirth;
   }
 
-  public int getId()
+  public long getId()
   {
     return id;
   }
 
   public String getUsername()
   {
-    return name + String.valueOf(age);
+    return (name + String.valueOf(age)).replaceAll("\\s", "");
   }
 
   public ArrayList<Module> getModule()
@@ -59,7 +63,7 @@ public class Lecturer {
     this.dateOfBirth = dateOfBirth;
   }
 
-  public void setId(int id) 
+  public void setId(long id) 
   {
     this.id = id;
   }
@@ -72,5 +76,23 @@ public class Lecturer {
   public void addModule(Module module)
   {
     modules.add(module);
+  }
+
+  @Override
+  public String toString()
+  {
+    StringBuilder moduleStr = new StringBuilder();
+    for (Module m : modules)
+    {
+      moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+    }
+
+    return 
+      "Lecturer: " + name + "\n" +
+      "- ID: " + String.valueOf(id) + "\n" +
+      "- Username: " + getUsername() + "\n" +
+      "- Date of Birth: " + dateOfBirth.toLocalDate() + "\n" +
+      "- Age: " + String.valueOf(age) + "\n" +
+      "- Modules:\n" + moduleStr;
   }
 }
