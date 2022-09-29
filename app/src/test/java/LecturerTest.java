@@ -8,14 +8,14 @@ public class LecturerTest
   void returnsCorrectUsername()
   {
     // Arrange.
-    DateTime dateOfBirth = new DateTime();
+    DateTime dateOfBirth = DateTime.parse("2000-03-04");
     Lecturer lecturer = new Lecturer("Micheal", dateOfBirth, 5);
 
     // Act.
     String username = lecturer.getUsername();
 
     // Assert.
-    assertEquals("Micheal25", username);
+    assertEquals("Micheal22", username);
   }
 
   @Test 

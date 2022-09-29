@@ -8,13 +8,13 @@ public class StudentTest
   void returnsCorrectUsername()
   {
     // Arrange.
-    DateTime dateOfBirth = new DateTime();
+    DateTime dateOfBirth = DateTime.parse("2001-05-11");
     Student student = new Student("John", dateOfBirth, 5);
 
     // Act.
     String username = student.getUsername();
 
     // Assert.
-    assertEquals("John53", username);
+    assertEquals("John21", username);
   }
 }
