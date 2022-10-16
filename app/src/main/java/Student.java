@@ -99,15 +99,23 @@ public class Student {
   public String toString()
   {
     StringBuilder courseStr = new StringBuilder();
-    for (CourseProgramme c : courses)
+
+    if (courses.size() > 0) 
     {
-      courseStr.append("  " + c.getName() + "\n");
+      for (CourseProgramme c : courses)
+      {
+        courseStr.append("  " + c.getName() + "\n");
+      }
     }
 
     StringBuilder moduleStr = new StringBuilder();
-    for (Module m : modules)
+
+    if (modules.size() > 0)
     {
-      moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+      for (Module m : modules)
+      {
+        moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+      }
     }
 
     return

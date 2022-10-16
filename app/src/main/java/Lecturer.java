@@ -45,7 +45,7 @@ public class Lecturer {
     return (name + String.valueOf(age)).replaceAll("\\s", "");
   }
 
-  public ArrayList<Module> getModule()
+  public ArrayList<Module> getModules()
   {
     return modules;
   }
@@ -82,9 +82,13 @@ public class Lecturer {
   public String toString()
   {
     StringBuilder moduleStr = new StringBuilder();
-    for (Module m : modules)
+
+    if (modules.size() > 0)
     {
-      moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+      for (Module m : modules)
+      {
+        moduleStr.append("  " + m.getId() + " - " + m.getName() + "\n");
+      }
     }
 
     return 
